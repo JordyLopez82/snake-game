@@ -1,0 +1,15 @@
+print("----------SNAKE GAME----------")
+seleccion = int(input("Presiona un número del 1 al 3 para seleccionar una opción: "))
+while seleccion < 1 or seleccion > 3:
+    seleccion = int(input("Opción no válida. Por favor, selecciona un número del 1 al 3: "))
+if seleccion == 1:
+    print("Iniciando el juego...")
+    # Aquí iría la lógica para iniciar el juego de Snake
+elif seleccion == 2:
+    print("Mostrando instrucciones...")
+    # Aquí iría la lógica para mostrar las instrucciones
+elif seleccion == 3:
+    print("Saliendo del juego...")
+    # Aquí iría la lógica para salir del juego
+else:
+    print("Opción no válida. Por favor, selecciona un número del 1 al 3.")
