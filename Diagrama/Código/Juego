@@ -1,0 +1,54 @@
+# Variables
+pos_x = 10
+pos_y = 10
+comida_x = 15
+comida_y = 15
+puntos = 0
+direccion = "D"
+jugando = True
+
+print("-----------------------------> SNAKE GAME <-----------------------------")
+print("Usa W (Arriba), S (Abajo), A (Izquierda), D (Derecha) para moverte.")
+print("Mantén las letras mayúsculas para no perder el turno.")
+
+# Bucle principal del juego
+while jugando:
+    print("------------------------------")
+    print("Serpiente en: (", pos_x, ",", pos_y, ")")
+    print("Comida en:    (", comida_x, ",", comida_y, ")")
+    print("Puntos:      ", puntos)
+    
+    # Lectura de entrada
+    direccion = input("Siguiente movimiento (W/A/S/D): ")
+
+    # Movimiento según la dirección
+    if direccion == "W":
+        pos_y = pos_y - 1
+    elif direccion == "S":
+        pos_y = pos_y + 1
+    elif direccion == "A":
+        pos_x = pos_x - 1
+    elif direccion == "D":
+        pos_x = pos_x + 1
+    else:
+        print("Opción inválida. Pierdes el turno.")
+
+    # Verificación de colisión con los bordes del tablero (0 a 20)
+    if pos_x < 0 or pos_x > 20 or pos_y < 0 or pos_y > 20:
+        print("¡Chocaste contra la pared!")
+        jugando = False
+    else:
+        # Verificación de captura de comida
+        if pos_x == comida_x and pos_y == comida_y:
+            puntos = puntos + 1
+            print("¡Atrapaste la comida!")
+            
+            # Reubicación de comida aleatoria
+            comida_x = (comida_x + 7) % 20
+            comida_y = (comida_y + 5) % 20
+
+# Pantalla de Fin de Juego
+print("------------------------------")
+print("Has perdido... :(")
+print("Puntuación final:", puntos)
+print("------------------------------")
